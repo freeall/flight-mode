@@ -4,7 +4,11 @@
   "description": "Flight mode for Mav",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "yarn run build && yarn run zip && yarn run cleanup",
+    "build": "electron-packager . \"Flight Mode\" --platform=darwin --icon=icon.icns",
+    "zip": "cd \"Flight Mode-darwin-x64\" && tar -czf \"../Flight Mode.app.tar.gz\" \"Flight Mode.app\" && cd ..",
+    "cleanup": "rm -rf \"Flight Mode-darwin-x64\""
   },
   "repository": "https://github.com/freeall/flight-mode",
   "keywords": [
@@ -19,6 +23,7 @@
   ],
   "author": "Tobias Baunbæk Christensen <freeall@gmail.com>",
   "devDependencies": {
-    "electron": "^1.4.1"
+    "electron": "^1.4.1",
+    "electron-packager": "^8.5.1"
   }
 }
