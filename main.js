@@ -1,18 +1,16 @@
 const path = require('path');
 const cp = require('child_process');
-const sudo = require('sudo-prompt');
 const {app, dialog, Tray, Menu} = require('electron');
 
 const offIcon = path.join(__dirname, 'off.png');
 const onIcon = path.join(__dirname, 'on.png');
-const sudoOptions = {name: 'Flight Mode', icns: path.join(__dirname, 'icon.icns')};
 let appIcon = null;
 
 app.dock.hide();
 
 function turnOn () {
   const cmd = '/usr/local/bin/blueutil off && networksetup -setairportpower airport off';
-  sudo.exec(cmd, sudoOptions, (err, stdout, stderr) => {
+  cp.exec(cmd, (err, stdout, stderr) => {
     if (err) {
       dialog.showMessageBox({
         type: 'info',
@@ -31,7 +29,7 @@ function turnOn () {
 
 function turnOff () { 
   const cmd = '/usr/local/bin/blueutil on && networksetup -setairportpower airport on';
-  sudo.exec(cmd, sudoOptions, (err, stdout, stderr) => {
+  cp.exec(cmd, (err, stdout, stderr) => {
     if (err) {
       dialog.showMessageBox({
         type: 'info',
