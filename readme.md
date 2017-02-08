@@ -10,7 +10,7 @@ Well, here's your chance! This program for Mac OS / OSX will add Flight Mode for
 
 ## Installation
 
-Download `Flight Mode.app.tar.gz`, unpack and install.
+You can download [Flight Mode.app.tar.gz](https://github.com/freeall/flight-mode/releases/download/v1.2.0/Flight.Mode.app.tar.gz), extract and run it! Drop it in your `Applications` folder for easy access.
 
 *Requirements*
 
