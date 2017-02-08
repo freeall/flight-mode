@@ -1,14 +1,18 @@
 const path = require('path');
 const cp = require('child_process');
-const {app, dialog, Tray, Menu, BrowserWindow} = require('electron');
+const sudo = require('sudo-prompt');
+const {app, dialog, Tray, Menu} = require('electron');
 
 const offIcon = path.join(__dirname, 'off.png');
 const onIcon = path.join(__dirname, 'on.png');
+const sudoOptions = {name: 'Flight Mode', icns: path.join(__dirname, 'icon.icns')};
 let appIcon = null;
-let win = null;
+
+app.dock.hide();
 
 function turnOn () {
-  cp.exec('blueutil off && networksetup -setairportpower airport off', (err, stdout, stderr) => {
+  const cmd = 'blueutil off && networksetup -setairportpower airport off';
+  sudo.exec(cmd, sudoOptions, (err, stdout, stderr) => {
     if (err) {
       dialog.showMessageBox({
         type: 'info',
@@ -26,7 +30,8 @@ function turnOn () {
 }
 
 function turnOff () { 
-  cp.exec('blueutil on && networksetup -setairportpower airport on', (err, stdout, stderr) => {
+  const cmd = 'blueutil on && networksetup -setairportpower airport on';
+  sudo.exec(cmd, sudoOptions, (err, stdout, stderr) => {
     if (err) {
       dialog.showMessageBox({
         type: 'info',
@@ -63,7 +68,6 @@ const menuOff = Menu.buildFromTemplate([
 ]);
 
 app.on('ready', function() {
-  win = new BrowserWindow({show: false});
   appIcon = new Tray(offIcon);
   appIcon.setToolTip('Flight mode is off');
   appIcon.setContextMenu(menuOff);
