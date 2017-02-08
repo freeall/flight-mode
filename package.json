@@ -1,0 +1,24 @@
+{
+  "name": "flight-mode",
+  "version": "1.0.0",
+  "description": "Flight mode for Mav",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/freeall/flight-mode",
+  "keywords": [
+    "flight",
+    "mode",
+    "flightmode",
+    "osx",
+    "os x",
+    "mac",
+    "macbook",
+    "offline"
+  ],
+  "author": "Tobias Baunbæk Christensen <freeall@gmail.com>",
+  "devDependencies": {
+    "electron": "^1.4.1"
+  }
+}
