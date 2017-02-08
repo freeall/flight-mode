@@ -11,7 +11,7 @@ let appIcon = null;
 app.dock.hide();
 
 function turnOn () {
-  const cmd = 'blueutil off && networksetup -setairportpower airport off';
+  const cmd = '/usr/local/bin/blueutil off && networksetup -setairportpower airport off';
   sudo.exec(cmd, sudoOptions, (err, stdout, stderr) => {
     if (err) {
       dialog.showMessageBox({
@@ -30,7 +30,7 @@ function turnOn () {
 }
 
 function turnOff () { 
-  const cmd = 'blueutil on && networksetup -setairportpower airport on';
+  const cmd = '/usr/local/bin/blueutil on && networksetup -setairportpower airport on';
   sudo.exec(cmd, sudoOptions, (err, stdout, stderr) => {
     if (err) {
       dialog.showMessageBox({
