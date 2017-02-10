@@ -2,7 +2,7 @@
 
 Have you ever wanted to point to your screen and tell the flight attendant that "Nono, it really is in flight mode"?
 
-Well, here's your chance! This program for Mac OS / OSX will add Flight Mode for you. Turn off all your radio (wifi and bluetooth) devices in your computer, and lets you turn them right back on when you land.
+Well, here's your chance! This program for macOS / OSX will add Flight Mode for you. Turn off all your radio (wifi and bluetooth) devices in your computer, and lets you turn them right back on when you land.
 
 <p align="center">
   <img src="https://github.com/freeall/flight-mode/raw/master/screencast.gif" alt="Flight Mode in action">
